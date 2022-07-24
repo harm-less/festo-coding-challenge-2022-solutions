@@ -122,11 +122,9 @@ function bloodSampleHasPicoGen2(bloodSampleLines: Array<string>) {
 	return false;
 }
 
-// must all be true
 export const validatedLabBloodSamplesGen2 = labBloodSamplesGen2.map((bloodSampleLines) => {
 	return bloodSampleHasPicoGen2(bloodSampleLines);
 });
-// must all be false
 export const validatedLabBloodSamplesGen2Clean = labBloodSamplesGen2Clean.map(
 	(bloodSampleLines) => {
 		return bloodSampleHasPicoGen2(bloodSampleLines);
