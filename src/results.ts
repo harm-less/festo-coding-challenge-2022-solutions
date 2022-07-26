@@ -1,3 +1,5 @@
+import 'source-map-support/register';
+
 import {jellyJones} from './episode-1/1.0.start';
 import {inhabitantsWithPicoIdSum} from './episode-1/1.1-pico-bots-gen-1.puzzle';
 import {allPossibleOutliersIdSum} from './episode-1/1.2-two-dimentional-galaxy.puzzle';
