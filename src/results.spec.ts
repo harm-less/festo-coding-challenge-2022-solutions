@@ -40,10 +40,10 @@ describe('Episode 1', () => {
 
 describe('Episode 2', () => {
 	test(`2.0 - Find Klaus's real name`, () => {
-		expect(klaus.name).toBe('Jianwei Yakubu');
+		expect(klaus()?.name).toBe('Jianwei Yakubu');
 	});
 	test('2.1 - Inhabitants with PICO Gen 2', () => {
-		expect(inhabitantsWithPicoGen2IdSum).toBe(2105304392);
+		expect(inhabitantsWithPicoGen2IdSum()).toBe(2105304392);
 	});
 	// TODO
 	test.skip('2.2 - Inhabitants from planets with space robberies', () => {

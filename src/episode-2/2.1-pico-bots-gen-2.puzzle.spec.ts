@@ -5,12 +5,12 @@ import {
 
 describe('Episode 2.1 - Inhabitants with PICO Gen 2', () => {
 	test('All samples must have PICO Gen 2', () => {
-		for (const sampleIsNotClean of validatedLabBloodSamplesGen2) {
+		for (const sampleIsNotClean of validatedLabBloodSamplesGen2()) {
 			expect(sampleIsNotClean).toBeTruthy();
 		}
 	});
 	test('No sample must have PICO Gen 2', () => {
-		for (const sampleIsNotClean of validatedLabBloodSamplesGen2Clean) {
+		for (const sampleIsNotClean of validatedLabBloodSamplesGen2Clean()) {
 			expect(sampleIsNotClean).toBeFalsy();
 		}
 	});
