@@ -1,21 +1,21 @@
 import {findPlanetByNameOrFail} from '../utils/planet.utils';
 import {Inhabitant} from '../data/population.constants';
-import {inhabitantsWithPicoGen2} from './2.1-pico-bots-gen-2.puzzle';
-import {inhabitantsWhoCouldHaveEarned79GAL} from './2.3-pay-check.puzzle';
+import {inhabitantsWithPicoGen3} from './3.1-pico-bots-gen-3.puzzle';
+import {inhabitantsWithoutAnAlibi} from './3.3-alibi.puzzle';
 
-const klausInhabitants = (): Array<Inhabitant> => {
-	const picoGen2Inhabitants = inhabitantsWithPicoGen2();
-	return inhabitantsWhoCouldHaveEarned79GAL()
+export const redMothInhabitants = (): Array<Inhabitant> => {
+	const picoGen3Inhabitants = inhabitantsWithPicoGen3();
+	return inhabitantsWithoutAnAlibi()
 		.filter((payCheck) => {
-			return picoGen2Inhabitants.find(
+			return picoGen3Inhabitants.find(
 				(gen2Inhabitant) => gen2Inhabitant.id === payCheck.inhabitant.id
 			);
 		})
 		.map(({inhabitant}) => inhabitant);
 };
 
-export const klaus = () => {
-	const inhabitants = klausInhabitants();
+export const redMoth = () => {
+	const inhabitants = redMothInhabitants();
 	if (inhabitants.length !== 1) {
 		console.error('Should hav found 1 inhabitant');
 	}
@@ -23,6 +23,6 @@ export const klaus = () => {
 };
 
 export const planetKlaus = () => {
-	const inhabitant = klaus();
+	const inhabitant = redMoth();
 	return inhabitant ? findPlanetByNameOrFail(inhabitant.homePlanet) : undefined;
 };

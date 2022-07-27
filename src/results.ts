@@ -7,7 +7,9 @@ import {klaus} from './episode-2/2.0.start';
 import {inhabitantsWithPicoGen2IdSum} from './episode-2/2.1-pico-bots-gen-2.puzzle';
 // import {inhabitantsFromPlanetsWithSpaceRobberiesIdSum} from './episode-2/2.2-space-robbery.puzzle';
 import {inhabitantsWith79GALEarningsIdSum} from './episode-2/2.3-pay-check.puzzle';
+import {redMoth, redMothInhabitants} from './episode-3/3.0.start';
 import {inhabitantsWithPicoGen3IdSum} from './episode-3/3.1-pico-bots-gen-3.puzzle';
+import {inhabitantsWithoutAnAlibiIdSum} from './episode-3/3.3-alibi.puzzle';
 import {
 	foundUsersContainingId814IdSum,
 	foundUsersHavingAccessToRoom5IdSum,
@@ -26,15 +28,19 @@ console.info('Episode 1.1 answer:', {inhabitantsWithPicoIdSum}); // 2288948789
 console.info('Episode 1.2 answer:', {allPossibleOutliersIdSum}); // 2438905648
 
 console.info('\n');
-console.info("Episode 2 (skipped as it's slow)");
-// console.info('Episode 2 answer:', {klaus: klaus()?.name}); // Jianwei Yakubu
-// console.info('Episode 2.1 answer:', {inhabitantsWithPicoGen2IdSum: inhabitantsWithPicoGen2IdSum()}); // 2105304392
+console.info('Episode 2');
+console.info('Episode 2 answer:', {klaus: klaus()?.name}); // Jianwei Yakubu
+console.info('Episode 2.1 answer:', {inhabitantsWithPicoGen2IdSum: inhabitantsWithPicoGen2IdSum()}); // 2105304392
 // console.info('Episode 2.2 answer:', {inhabitantsFromPlanetsWithSpaceRobberiesIdSum}); // 2105304392
-// console.info('Episode 2.3 answer:', {inhabitantsWith79GALEarningsIdSum}); // 3288804647
+console.info('Episode 2.3 answer:', {
+	inhabitantsWith79GALEarningsIdSum: inhabitantsWith79GALEarningsIdSum()
+}); // 3288804647
 
 console.info('\n');
 console.info('Episode 3');
-// console.info('Episode 3 answer:', {klaus: klaus.name}); // Jianwei Yakubu
-console.info('Episode 3.1 answer:', {inhabitantsWithPicoGen3IdSum}); // 2105304392
+console.info('Episode 3 answer:', {redMoth: redMoth()?.name}); // Agnes Carter
+console.info('Episode 3.1 answer:', {inhabitantsWithPicoGen3IdSum: inhabitantsWithPicoGen3IdSum()}); // 2105304392
 // console.info('Episode 3.2 answer:', {inhabitantsFromPlanetsWithSpaceRobberiesIdSum}); // 2105304392
-// console.info('Episode 3.3 answer:', {inhabitantsWith79GALEarningsIdSum}); // 3288804647
+// console.info('Episode 3.3 answer:', {
+// 	inhabitantsWithoutAnAlibiIdSum: inhabitantsWithoutAnAlibiIdSum()
+// });

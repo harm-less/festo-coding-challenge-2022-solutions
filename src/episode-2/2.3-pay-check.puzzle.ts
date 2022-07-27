@@ -8,8 +8,8 @@ export interface InhabitantPayCheck {
 	inhabitant: Inhabitant;
 }
 
-const workInhabitants = Object.keys(inhabitantsSecurityLogs).map<InhabitantPayCheck>(
-	(inhabitantName) => {
+const workInhabitants = () =>
+	Object.keys(inhabitantsSecurityLogs).map<InhabitantPayCheck>((inhabitantName) => {
 		const inhabitantsSecurityLog = inhabitantsSecurityLogs[inhabitantName];
 		if (!inhabitantsSecurityLog) {
 			throw new Error('Logs not found');
@@ -52,10 +52,9 @@ const workInhabitants = Object.keys(inhabitantsSecurityLogs).map<InhabitantPayCh
 			shifts,
 			inhabitant
 		};
-	}
-);
+	});
 
-function findPossibleShiftEarningCombinations(shiftLenghs: Array<number>) {
+function findPossibleShiftEarningCombinations(shiftLengths: Array<number>) {
 	const possibleEarnings: Array<number> = [];
 	const findCombinations = (startValue: number, remainingShiftLengths: Array<number>) => {
 		for (let i = 0; i < remainingShiftLengths.length; i++) {
@@ -65,21 +64,20 @@ function findPossibleShiftEarningCombinations(shiftLenghs: Array<number>) {
 			findCombinations(startValue + remainingShiftLengths[i]!, remainingShiftLengths.slice(i + 1));
 		}
 	};
-	findCombinations(0, shiftLenghs);
+	findCombinations(0, shiftLengths);
 	return possibleEarnings;
 }
 
-export const inhabitantsWhoCouldHaveEarned79GAL = workInhabitants.filter(({shifts}) => {
-	const shiftsShorterThan79 = shifts.filter((shift) => shift <= 79);
-	const shiftEarningCombinations = findPossibleShiftEarningCombinations(shiftsShorterThan79);
-	return shiftEarningCombinations.includes(79);
-});
+export const inhabitantsWhoCouldHaveEarned79GAL = () =>
+	workInhabitants().filter(({shifts}) => {
+		const shiftsShorterThan79 = shifts.filter((shift) => shift <= 79);
+		const shiftEarningCombinations = findPossibleShiftEarningCombinations(shiftsShorterThan79);
+		return shiftEarningCombinations.includes(79);
+	});
 
 // first try: 2155372608
 // second try: 3288804647
-export const inhabitantsWith79GALEarningsIdSum = inhabitantsWhoCouldHaveEarned79GAL.reduce(
-	(sum, {inhabitant}) => {
+export const inhabitantsWith79GALEarningsIdSum = () =>
+	inhabitantsWhoCouldHaveEarned79GAL().reduce((sum, {inhabitant}) => {
 		return sum + inhabitant.id;
-	},
-	0
-);
+	}, 0);

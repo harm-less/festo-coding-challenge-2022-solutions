@@ -85,9 +85,13 @@ export const validatedLabBloodSamplesGen3Clean = () =>
 		return !!bloodSampleHasPicoGen3(bloodSampleLines);
 	});
 
-export const inhabitantsWithPicoGen3 = inhabitants.filter((inhabitant) => {
-	return bloodSampleHasPicoGen3(inhabitant.bloodSampleLines);
-});
-export const inhabitantsWithPicoGen3IdSum = inhabitantsWithPicoGen3.reduce((sum, {id}) => {
-	return sum + id;
-}, 0);
+export const inhabitantsWithPicoGen3 = () => {
+	return inhabitants.filter((inhabitant) => {
+		return bloodSampleHasPicoGen3(inhabitant.bloodSampleLines);
+	});
+};
+export const inhabitantsWithPicoGen3IdSum = () => {
+	return inhabitantsWithPicoGen3().reduce((sum, {id}) => {
+		return sum + id;
+	}, 0);
+};

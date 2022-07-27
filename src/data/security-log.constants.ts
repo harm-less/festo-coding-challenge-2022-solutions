@@ -1,3 +1,4 @@
+import {toMinutes} from '../utils/time.utils';
 import {securityLogs} from './security-log.data';
 
 const places = securityLogs.split('Place: ');
@@ -8,6 +9,7 @@ export interface SecurityLog {
 	time: string;
 	hours: number;
 	minutes: number;
+	minutesFromMidnight: number;
 	type: 'in' | 'out';
 }
 
@@ -47,6 +49,7 @@ export const inhabitantsSecurityLogs = places.reduce<Record<string, Array<Securi
 						time,
 						hours,
 						minutes,
+						minutesFromMidnight: toMinutes(hours, minutes),
 						type
 					});
 				});

@@ -5,6 +5,9 @@ import {klaus} from './episode-2/2.0.start';
 import {inhabitantsWithPicoGen2IdSum} from './episode-2/2.1-pico-bots-gen-2.puzzle';
 import {inhabitantsFromPlanetsWithSpaceRobberiesIdSum} from './episode-2/2.2-space-robbery.puzzle';
 import {inhabitantsWith79GALEarningsIdSum} from './episode-2/2.3-pay-check.puzzle';
+import {redMoth} from './episode-3/3.0.start';
+import {inhabitantsWithPicoGen3IdSum} from './episode-3/3.1-pico-bots-gen-3.puzzle';
+import {inhabitantsWithoutAnAlibiIdSum} from './episode-3/3.3-alibi.puzzle';
 import {
 	foundUsersContainingId814IdSum,
 	foundUsersHavingAccessToRoom5IdSum,
@@ -25,7 +28,7 @@ describe('Intro', () => {
 });
 
 describe('Episode 1', () => {
-	test(`1.0 - Find Jelly Jones's real name`, () => {
+	test("1.0 - Find Jelly Jones's real name", () => {
 		expect(jellyJones.name).toBe('Tun Kazem');
 	});
 	test('1.1 - Inhabitants with PICO', () => {
@@ -39,7 +42,7 @@ describe('Episode 1', () => {
 });
 
 describe('Episode 2', () => {
-	test(`2.0 - Find Klaus's real name`, () => {
+	test("2.0 - Find Klaus's real name", () => {
 		expect(klaus()?.name).toBe('Jianwei Yakubu');
 	});
 	test('2.1 - Inhabitants with PICO Gen 2', () => {
@@ -50,6 +53,22 @@ describe('Episode 2', () => {
 		expect(inhabitantsFromPlanetsWithSpaceRobberiesIdSum).toBe(0);
 	});
 	test('2.3 - Inhabitants with 79 GAL earnings', () => {
-		expect(inhabitantsWith79GALEarningsIdSum).toBe(3288804647);
+		expect(inhabitantsWith79GALEarningsIdSum()).toBe(3288804647);
+	});
+});
+
+describe('Episode 3', () => {
+	test("3.0 - Find The Red Moth's real name", () => {
+		expect(redMoth()?.name).toBe('Agnes Carter');
+	});
+	test('3.1 - Inhabitants with PICO Gen 3', () => {
+		expect(inhabitantsWithPicoGen3IdSum()).toBe(1924306984);
+	});
+	// TODO
+	test.skip('3.2 - Inhabitants from planets with space robberies', () => {
+		expect(inhabitantsFromPlanetsWithSpaceRobberiesIdSum).toBe(0);
+	});
+	test.skip('3.3 - Inhabitants without an alibi', () => {
+		expect(inhabitantsWithoutAnAlibiIdSum()).toBe(3288804647);
 	});
 });
