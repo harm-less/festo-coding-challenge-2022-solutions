@@ -22,8 +22,8 @@ describe('Intro', () => {
 		expect(foundUsersHavingAccessToRoom5IdSum).toBe(53905239);
 	});
 	// TODO: Somehow it's wrong
-	test.skip('0.3 - Found users logged in before 7:14', () => {
-		expect(foundUsersLoggedInBefore714IdSum).toBe(18824468);
+	test('0.3 - Found users logged in before 7:14', () => {
+		expect(foundUsersLoggedInBefore714IdSum).toBe(47594213);
 	});
 });
 

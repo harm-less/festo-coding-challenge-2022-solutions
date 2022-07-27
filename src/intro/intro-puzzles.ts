@@ -1,5 +1,6 @@
 import {users} from '../data/users.data';
 import {reverseString} from '../utils/string.utils';
+import {toMinutes} from '../utils/time.utils';
 
 // program to convert decimal to binary
 function convertToBinary(x: number) {
@@ -35,9 +36,11 @@ export const foundUsersHavingAccessToRoom5IdSum = foundUsersHavingAccessToRoom5.
 );
 
 // // puzzle 3
+const time714Minutes = toMinutes(7, 14);
 const foundUsersLoggedInBefore714 = users.filter(({firstLogin}) => {
 	const [hours, minutes] = firstLogin.split(':') as [string, string];
-	if (parseInt(hours, 10) <= 7 && parseInt(minutes, 10) < 14) {
+
+	if (toMinutes(parseInt(hours, 10), parseInt(minutes, 10)) < time714Minutes) {
 		return true;
 	}
 
